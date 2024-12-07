@@ -22,7 +22,7 @@ const Products = () => {
     <div className="bg-gradient-to-r from-black to-indigo-600 py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center text-white mb-8">
-          Premium Laptops
+          Featured Products
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {laptops.map((x) => (

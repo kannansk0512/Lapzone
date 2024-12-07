@@ -13,6 +13,9 @@ const AddProduct = () => {
   });
 
   const [imageInputs, setImageInputs] = useState([{ id: Date.now(), file: null }]);
+  
+  // Assuming you have a function to get the token from localStorage or some other state
+  const token = localStorage.getItem('token');  // Change this to how you store the token
 
   // Handle form data
   const laptop_data = (e) => {
@@ -54,11 +57,12 @@ const AddProduct = () => {
     try {
       const response = await axios.post("http://127.0.0.1:8000/add_product/", formData, {
         headers: {
+          "Authorization": `Bearer ${token}`, // Send the token with the 'Bearer' prefix
           "Content-Type": "multipart/form-data",
         },
       });
       console.log("Response:", response.data);
-      navigate("/"); // Redirect after successful product addition
+      navigate("/"); // Redirect to the home page
     } catch (error) {
       console.error("Error adding product:", error.response || error.message);
     }
@@ -68,12 +72,10 @@ const AddProduct = () => {
     <div className="min-h-screen bg-gradient-to-r from-black to-indigo-600 flex flex-col">
       <main className="flex-grow">
         <div className="container mx-auto px-4 py-12">
-          
-
           <form className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-3xl font-bold text-center mb-6 text-gradient bg-gradient-to-r from-blue-600 to-purple-700 text-transparent bg-clip-text">
-            Add Product
-          </h2>
+            <h2 className="text-3xl font-bold text-center mb-6 text-gradient bg-gradient-to-r from-blue-600 to-purple-700 text-transparent bg-clip-text">
+              Add Product
+            </h2>
             {/* Product Name */}
             <div className="mb-4">
               <label htmlFor="product_name" className="block text-sm font-medium text-gray-700 mb-1">

@@ -33,8 +33,9 @@ const Home = () => {
           <img src={LapImage} alt="Laptops" className="rounded-lg  w-21.1 h-auto "/>
         </div>
       </div>
+      <Products/>
     </section>
-   
+    
   );
 };
 
