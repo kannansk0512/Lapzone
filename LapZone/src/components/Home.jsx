@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom'
 import LapImage from "../assets/laptop4.png"
+import Products from "./Products";
 
 const Home = () => {
   return (
@@ -33,7 +34,9 @@ const Home = () => {
         </div>
       </div>
     </section>
+   
   );
 };
+
 
 export default Home;

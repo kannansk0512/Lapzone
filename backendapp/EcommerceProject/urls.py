@@ -33,7 +33,10 @@ urlpatterns = [
     path('profile/', views.user_profile_view, name='user-profile'),
     path('add_to_cart/<int:id>',views.add_to_cart),
     path('view_cart',views.view_cart),
-    path('delete_cart/<int:id>',views.remove_from_cart)
+    path('delete_cart/<int:id>',views.remove_from_cart),
+    path('confirm_order/',views.confirm_order),
+    path('cart_count',views.cart_count)
+
 
 
 

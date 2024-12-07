@@ -1,5 +1,5 @@
-from .models import Products, Images, Cart
-from .serializer import LaptopSerializer, CartSerializer, UserSerializer
+from .models import Products, Images, Cart,Orders
+from .serializer import LaptopSerializer, CartSerializer, UserSerializer,OrderSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from django.contrib.auth.models import User
@@ -10,20 +10,17 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def add_product(request):
-    # Extract product data
     product_data = {
         'product_name': request.data.get('product_name'),
         'product_price': request.data.get('product_price'),
         'product_quantity': request.data.get('product_quantity'),
     }
-
-    # Serialize and save the product
     serializer = LaptopSerializer(data=product_data)
     if serializer.is_valid():
         product = serializer.save()
 
-        # Save multiple images
         images = request.FILES.getlist('images')
         for image in images:
             Images.objects.create(product=product, image=image)
@@ -76,7 +73,6 @@ def delete_product(request, id):
         return Response("data not available")
 
 
-
 @api_view(['POST'])
 def sign_up(request):
     try:
@@ -85,15 +81,15 @@ def sign_up(request):
         email = data.get('email')
         password = data.get('password')
 
-        # Ensure all fields are provided
+
         if not username or not email or not password:
             return Response({'error': 'All fields are required.'}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Check if the username already exists
+
         if User.objects.filter(username=username).exists():
             return Response({'error': 'Username already exists.'}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Create a new user
+
         user = User.objects.create_user(username=username, email=email, password=password)
         return Response({'message': 'User created successfully.'}, status=status.HTTP_201_CREATED)
 
@@ -103,15 +99,12 @@ def sign_up(request):
 
 @api_view(['POST'])
 def login_view(request):
-    """
-    Login view for JWT authentication using email and password.
-    """
     username = request.data.get('username')
     password = request.data.get('password')
 
     if not username or not password:
         return Response(
-            {"error": "Email and password are required."},
+            {"error": "username and password are required."},
             status=status.HTTP_400_BAD_REQUEST
         )
 
@@ -122,8 +115,6 @@ def login_view(request):
                 {"error": "Invalid credentials."},
                 status=status.HTTP_401_UNAUTHORIZED
             )
-
-        # Generate JWT tokens
         refresh = RefreshToken.for_user(user)
         return Response(
             {
@@ -145,10 +136,8 @@ def login_view(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def user_profile_view(request):
-    """
-    Retrieve the profile of the logged-in user.
-    """
-    user = request.user  # This will be the authenticated user
+
+    user = request.user
     return Response(
         {
             "user_id": user.id,
@@ -216,5 +205,36 @@ def remove_from_cart(request, id):
             {"error": str(e)},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
+
+
+@api_view(['POST'])
+def confirm_order(request):
+    try:
+        data = request.data
+        print("Received Data:", data)  # Debug the structure of incoming data
+
+        # Loop through items and create order records
+        for item in data['items']:
+            product = Products.objects.get(product_id=item['products'])
+            Orders.objects.create(
+                user=request.user,
+                products=product,
+                quantity=item['quantity'],
+                total_price=item['total_price']
+            )
+
+        return Response({"message": "Order confirmed"}, status=201)
+    except Exception as e:
+        print("Error:", str(e))  # Debug the error
+        return Response({"error": str(e)}, status=400)
+
+
+@api_view(['GET'])
+def cart_count(request):
+    count=Cart.objects.filter(user=request.user).count()
+    json_data=CartSerializer(count,many=False)
+    data=json_data.data
+    return Response(data)
+
 
 

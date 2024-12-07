@@ -68,11 +68,12 @@ const AddProduct = () => {
     <div className="min-h-screen bg-gradient-to-r from-black to-indigo-600 flex flex-col">
       <main className="flex-grow">
         <div className="container mx-auto px-4 py-12">
+          
+
+          <form className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-3xl font-bold text-center mb-6 text-gradient bg-gradient-to-r from-blue-600 to-purple-700 text-transparent bg-clip-text">
             Add Product
           </h2>
-
-          <form className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
             {/* Product Name */}
             <div className="mb-4">
               <label htmlFor="product_name" className="block text-sm font-medium text-gray-700 mb-1">

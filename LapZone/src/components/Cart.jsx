@@ -91,7 +91,7 @@ const Cart = () => {
         redirect('/login')
       }
 
-      // Configure the headers with the token
+     
       const config = {
         headers: {  
           Authorization: `Bearer ${token}`, 
@@ -190,9 +190,16 @@ console.log(totalAmount)
           <p className="text-2xl font-semibold text-white">
             Total: ${totalAmount}
           </p>
-          <button className="px-8 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">
-            Checkout
-          </button>
+          <button
+  className="px-8 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300"
+  onClick={() =>
+    redirect("/checkout", {
+      state: { cartItems, totalAmount },
+    })
+  }
+>
+  Checkout
+</button>
         </div>
       </div>
     </div>

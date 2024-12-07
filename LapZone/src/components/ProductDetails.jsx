@@ -25,9 +25,8 @@ const ProductDetails = () => {
   const addCartData = async () => {
     try {
       const token = localStorage.getItem("token");
-
       if (!token) {
-        redirect("/");
+        redirect("/login");
       }
 
       const config = {

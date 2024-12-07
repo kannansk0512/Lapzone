@@ -47,8 +47,8 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
             <p className="text-sm text-gray-200">Email: support@lapzone.com</p>
-            <p className="text-sm text-gray-200">Phone: +123-456-7890</p>
-            <p className="text-sm text-gray-200">Address: 123 LapZone St., Tech City</p>
+            <p className="text-sm text-gray-200">Phone: +91 9876543211</p>
+            <p className="text-sm text-gray-200">Address: 123 LapZone St., kerala City</p>
           </div>
 
           {/* Social Media Links */}

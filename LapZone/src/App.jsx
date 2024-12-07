@@ -13,13 +13,18 @@ import ProductDetails from './components/ProductDetails';
 import Cart from './components/Cart';
 import NavHome from './components/NavHome';
 import Products from './components/Products';
+import OrderConfirm from './components/OrderConfirm';
+import Profile from './components/Profile';
+import Checkout from './components/Checkout';
 
 
-const App = () => {
-  const isLoggedIn = !!localStorage.getItem("authToken");
+const App = () => 
+  {
+    
   return (
     <>
-    {isLoggedIn ? <NavHome/> : <Navbar/>}
+  
+    <Navbar/>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='shop/' element={<LaptopCards/>}/>
@@ -30,6 +35,11 @@ const App = () => {
       <Route path='contact/' element={<Contact/>}/>
       <Route path='productdetails/:id' element={<ProductDetails/>}/>
       <Route path='cart/' element={<Cart/>}/>
+      <Route path='NavHome/' element={<NavHome/>}/>
+      <Route path='order_confirm/' element={<OrderConfirm/>}/>
+      <Route path='products/' element={<Products/>}/>
+      <Route path='profile/' element={<Profile/>}/>
+      <Route path='checkout/' element={<Checkout/>}/>
     </Routes>
     <Footer/>
     <cardSection/>
