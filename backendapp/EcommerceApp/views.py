@@ -237,4 +237,24 @@ def cart_count(request):
     return Response(data)
 
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def profile(request):
+    user=request.user
+    user_data=User.objects.get(id=user.id)
+    json_data=UserSerializer(user_data,many=False)
+    data=json_data.data
+    return Response(data)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def my_orders(request):
+    user=request.user
+    order_data=Orders.objects.filter(user=user)
+    json_data=OrderSerializer(order_data,many=True)
+    data=json_data.data
+    return Response(data)
+
+
 

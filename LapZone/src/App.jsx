@@ -16,6 +16,7 @@ import Products from './components/Products';
 import OrderConfirm from './components/OrderConfirm';
 import Profile from './components/Profile';
 import Checkout from './components/Checkout';
+import MyOrders from './components/Myorders';
 
 
 const App = () => 
@@ -40,6 +41,7 @@ const App = () =>
       <Route path='products/' element={<Products/>}/>
       <Route path='profile/' element={<Profile/>}/>
       <Route path='checkout/' element={<Checkout/>}/>
+      <Route path='myorders/' element={<MyOrders/>}/>
     </Routes>
     <Footer/>
     <cardSection/>

@@ -11,10 +11,12 @@
       <change afterPath="$PROJECT_DIR$/../user/templates/login.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../user/templates/userhome.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LapZone/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/LapZone/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LapZone/src/components/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/LapZone/src/components/AddProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LapZone/src/components/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/LapZone/src/components/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LapZone/src/components/Products.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/LapZone/src/components/Products.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LapZone/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/LapZone/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LapZone/src/components/Cards.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/LapZone/src/components/Cards.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LapZone/src/components/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/LapZone/src/components/Profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backendapp/EcommerceApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backendapp/EcommerceApp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backendapp/EcommerceApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backendapp/EcommerceApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backendapp/EcommerceProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backendapp/EcommerceProject/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

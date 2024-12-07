@@ -35,7 +35,9 @@ urlpatterns = [
     path('view_cart',views.view_cart),
     path('delete_cart/<int:id>',views.remove_from_cart),
     path('confirm_order/',views.confirm_order),
-    path('cart_count',views.cart_count)
+    path('cart_count',views.cart_count),
+    path('profile/',views.profile),
+    path('my_orders/',views.my_orders),
 
 
 

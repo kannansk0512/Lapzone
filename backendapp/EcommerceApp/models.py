@@ -26,8 +26,9 @@ class Cart(models.Model):
 class Orders(models.Model):
     order_id=models.AutoField(primary_key=True)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    products=models.ForeignKey(Products,on_delete=models.CASCADE)
+    product=models.ForeignKey(Products,on_delete=models.CASCADE)
     quantity=models.IntegerField()
     total_price=models.IntegerField()
     order_date=models.DateField(auto_now_add=True,null=True)
+    status=models.CharField(max_length=100,default='confirm')
 

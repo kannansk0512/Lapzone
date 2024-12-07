@@ -10,8 +10,6 @@ const LaptopCards = () => {
   const fetchData = async () => {
     const response = await axios.get('http://127.0.0.1:8000/show_products/');
     let laptop_data=response.data;
-    console.log("dsjlfjsld")
-    console.log(laptop_data)
     setLaptop(laptop_data)
   }
   useEffect(() => {
